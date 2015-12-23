@@ -9,7 +9,9 @@ before_install:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" quay.io
 
 script:
-  - docker build -t quay.io/phamhongviet/nginx .
+  - docker build -t quay.io/phamhongviet/nginx:latest .
+  - docker build -t quay.io/phamhongviet/nginx:1.8 .
 
 after_script:
-  - docker push quay.io/phamhongviet/nginx
+  - docker push quay.io/phamhongviet/nginx:latest
+  - docker push quay.io/phamhongviet/nginx:1.8
