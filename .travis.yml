@@ -1,0 +1,9 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" quay.io
+  - docker build -t quay.io/phamhongviet/nginx .
+  - docker push quay.io/phamhongviet/nginx
